@@ -48,8 +48,14 @@ describe(`Teste se o topo da aplicação
 
   test(`Teste se a aplicação é redirecionada para a página 
         Not Found ao entrar em uma URL desconhecida.`, () => {
-    renderWithRouter(<App />);
-  });
+    const { history } = renderWithRouter(<App />);
 
-  
+    history.push('/digimons');
+
+    const pageNotFound = screen.getByRole('img', {
+      name: /pikachu crying because the page requested was not found/i,
+    });
+
+    expect(pageNotFound).toBeInTheDocument();
+  });
 });
