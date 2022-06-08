@@ -42,5 +42,21 @@ describe('Teste o componente <Pokedex />', () => {
     const nextPokemon = screen.getByText(/Charmander/i);
 
     expect(nextPokemon).toBeInTheDocument();
+
+    userEvent.click(btnNextPokemon);
+    userEvent.click(btnNextPokemon);
+    userEvent.click(btnNextPokemon);
+    userEvent.click(btnNextPokemon);
+    userEvent.click(btnNextPokemon);
+    userEvent.click(btnNextPokemon);
+    userEvent.click(btnNextPokemon);
+
+    const lastPokemon = screen.getByText(/Dragonair/i);
+
+    expect(lastPokemon).toBeInTheDocument();
+
+    userEvent.click(btnNextPokemon);
+
+    expect(firstPokemon).toBeInTheDocument();
   });
 });
