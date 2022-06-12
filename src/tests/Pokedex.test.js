@@ -16,6 +16,25 @@ describe('Teste o componente <Pokedex />', () => {
     78: false,
     5: false,
   };
+
+  const testButtonType = (button, nextType, pokemon) => {
+    userEvent.click(button);
+    expect(screen.getByText(pokemon)).toBeInTheDocument();
+    expect(nextType).not.toBeEnabled();
+  };
+
+  const testButtonType2Poke = (button, nextType, pokemon, pokemon2) => {
+    userEvent.click(button);
+    expect(screen.getByText(pokemon)).toBeInTheDocument();
+    expect(nextType).toBeEnabled();
+
+    userEvent.click(nextType);
+    expect(screen.getByText(pokemon2)).toBeInTheDocument();
+
+    userEvent.click(nextType);
+    expect(screen.getByText(pokemon)).toBeInTheDocument();
+  };
+
   beforeEach(() => renderWithRouter(<Pokedex
     pokemons={ pokemons }
     isPokemonFavoriteById={ isPokemonFavoriteByIdType }
@@ -63,45 +82,42 @@ describe('Teste o componente <Pokedex />', () => {
 
   test('Teste se a Pokédex tem os botões de filtro: ', () => {
     const btnNextPokemon = screen.getByText(/próximo pokémon/i);
-    const btnAll = screen.getAllByText(/all/i);
-    expect(btnAll).toHaveLength(1);
+    const btnAll = screen.getByText(/all/i);
+    expect(btnAll).toBeInTheDocument();
 
     const btnEletric = screen.getByRole('button', { name: /electric/i });
     expect(btnEletric).toBeInTheDocument();
 
-    userEvent.click(btnEletric);
-    const firstPokemonEletric = screen.getByText(/pikachu/i);
-    expect(firstPokemonEletric).toBeInTheDocument();
-    expect(btnNextPokemon).not.toBeEnabled();
+    testButtonType(btnEletric, btnNextPokemon, /pikachu/i);
 
     const btnFire = screen.getByText(/fire/i);
     expect(btnFire).toBeInTheDocument();
 
-    userEvent.click(btnFire);
-    const firstPokemonFire = screen.getByText(/charmander/i);
-    expect(firstPokemonFire).toBeInTheDocument();
-    expect(btnNextPokemon).toBeEnabled();
+    testButtonType2Poke(btnFire, btnNextPokemon, /charmander/i, /rapidash/i);
 
-    userEvent.click(btnNextPokemon);
-    const secondPokemonFire = screen.getByText(/rapidash/i);
-    expect(secondPokemonFire).toBeInTheDocument();
+    const btnBug = screen.getByText(/bug/i);
+    expect(btnBug).toBeInTheDocument();
 
-    userEvent.click(btnNextPokemon);
-    expect(firstPokemonFire).toBeInTheDocument();
+    testButtonType(btnBug, btnNextPokemon, /caterpie/i);
 
-    const btnBug = screen.getAllByText(/bug/i);
-    expect(btnBug).toHaveLength(1);
+    const btnPoison = screen.getByText(/poison/i);
+    expect(btnPoison).toBeInTheDocument();
 
-    const btnPoison = screen.getAllByText(/poison/i);
-    expect(btnPoison).toHaveLength(1);
+    testButtonType(btnPoison, btnNextPokemon, /ekans/i);
 
-    const btnPsychic = screen.getAllByText(/psychic/i);
-    expect(btnPsychic).toHaveLength(1);
+    const btnPsychic = screen.getByText(/psychic/i);
+    expect(btnPsychic).toBeInTheDocument();
 
-    const btnNormal = screen.getAllByText(/normal/i);
-    expect(btnNormal).toHaveLength(1);
+    testButtonType2Poke(btnPsychic, btnNextPokemon, /alakazam/i, /mew/i);
 
-    const btnDragon = screen.getAllByText(/dragon/i);
-    expect(btnDragon).toHaveLength(1);
+    const btnNormal = screen.getByText(/normal/i);
+    expect(btnNormal).toBeInTheDocument();
+
+    testButtonType(btnNormal, btnNextPokemon, /snorlax/i);
+
+    const btnDragon = screen.getByText(/dragon/i);
+    expect(btnDragon).toBeInTheDocument();
+
+    testButtonType(btnDragon, btnNextPokemon, /dragonair/i);
   });
 });
