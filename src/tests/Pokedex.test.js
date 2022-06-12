@@ -77,6 +77,18 @@ describe('Teste o componente <Pokedex />', () => {
     const btnFire = screen.getByText(/fire/i);
     expect(btnFire).toBeInTheDocument();
 
+    userEvent.click(btnFire);
+    const firstPokemonFire = screen.getByText(/charmander/i);
+    expect(firstPokemonFire).toBeInTheDocument();
+    expect(btnNextPokemon).toBeEnabled();
+
+    userEvent.click(btnNextPokemon);
+    const secondPokemonFire = screen.getByText(/rapidash/i);
+    expect(secondPokemonFire).toBeInTheDocument();
+
+    userEvent.click(btnNextPokemon);
+    expect(firstPokemonFire).toBeInTheDocument();
+
     const btnBug = screen.getAllByText(/bug/i);
     expect(btnBug).toHaveLength(1);
 
