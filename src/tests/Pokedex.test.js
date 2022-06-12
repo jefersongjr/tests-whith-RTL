@@ -58,7 +58,38 @@ describe('Teste o componente <Pokedex />', () => {
 
   test('Teste se é mostrado apenas um pokémon por vez; ', () => {
     const pokemonView = screen.getAllByTestId('pokemon-name');
-
     expect(pokemonView).toHaveLength(1);
+  });
+
+  test('Teste se a Pokédex tem os botões de filtro: ', () => {
+    const btnNextPokemon = screen.getByText(/próximo pokémon/i);
+    const btnAll = screen.getAllByText(/all/i);
+    expect(btnAll).toHaveLength(1);
+
+    const btnEletric = screen.getByRole('button', { name: /electric/i });
+    expect(btnEletric).toBeInTheDocument();
+
+    userEvent.click(btnEletric);
+    const firstPokemonEletric = screen.getByText(/pikachu/i);
+    expect(firstPokemonEletric).toBeInTheDocument();
+    expect(btnNextPokemon).not.toBeEnabled();
+
+    const btnFire = screen.getByText(/fire/i);
+    expect(btnFire).toBeInTheDocument();
+
+    const btnBug = screen.getAllByText(/bug/i);
+    expect(btnBug).toHaveLength(1);
+
+    const btnPoison = screen.getAllByText(/poison/i);
+    expect(btnPoison).toHaveLength(1);
+
+    const btnPsychic = screen.getAllByText(/psychic/i);
+    expect(btnPsychic).toHaveLength(1);
+
+    const btnNormal = screen.getAllByText(/normal/i);
+    expect(btnNormal).toHaveLength(1);
+
+    const btnDragon = screen.getAllByText(/dragon/i);
+    expect(btnDragon).toHaveLength(1);
   });
 });
