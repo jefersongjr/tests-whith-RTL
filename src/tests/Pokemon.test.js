@@ -45,11 +45,15 @@ describe(' o componente <Pokemon.js />', () => {
     expect(pathname).toBe('/pokemons/25');
   });
   test('Teste se existe um ícone de estrela nos pokémons favoritados:', () => {
+    const TRUE = true;
     renderWithRouter(<Pokemon
       pokemon={ pokemons[0] }
-      isFavorite={ false }
+      isFavorite={ TRUE }
     />);
-    
- });
+    const favoriteImg = screen.getByAltText(/pikachu is marked as favorite/i);
+    expect(favoriteImg).toBeInTheDocument();
 
+    const favoriteImgUrl = 'http://localhost/star-icon.svg';
+    expect(favoriteImg.src).toBe(favoriteImgUrl);
+  });
 });
