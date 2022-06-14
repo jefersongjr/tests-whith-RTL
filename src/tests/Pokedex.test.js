@@ -82,8 +82,10 @@ describe('Teste o componente <Pokedex />', () => {
 
   test('Teste se a Pokédex tem os botões de filtro: ', () => {
     const btnNextPokemon = screen.getByText(/próximo pokémon/i);
-    const btnAll = screen.getByText(/all/i);
-    expect(btnAll).toBeInTheDocument();
+    const panelBtnType = screen.getAllByTestId('pokemon-type-button');
+    const SETE = 7;
+
+    expect(panelBtnType).toHaveLength(SETE);
 
     const btnEletric = screen.getByRole('button', { name: /electric/i });
     expect(btnEletric).toBeInTheDocument();
@@ -119,5 +121,14 @@ describe('Teste o componente <Pokedex />', () => {
     expect(btnDragon).toBeInTheDocument();
 
     testButtonType(btnDragon, btnNextPokemon, /dragonair/i);
+  });
+
+  test('Teste se é mostrado apenas um pokémon por vez; ', () => {
+    const btnAll = screen.getByText(/all/i);
+    expect(btnAll).toBeInTheDocument();
+
+    expect(btnAll).toBeEnabled();
+
+    userEvent.click(btnAll);
   });
 });
