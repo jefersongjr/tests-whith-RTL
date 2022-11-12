@@ -16,6 +16,11 @@ Aonde desenvolver testes unitários e de integração em uma aplicação React u
 * Stryker Mutator
 * JavaScript ES6+
 
+## 📊 Test Coverage: 
+
+![Prévia](https://github.com/jefersongjr/tests-whith-RTL/blob/main/public/coverage.jpg)
+
 ## :computer: Skills Desenvolvidas:
 
 * Desenvolver testes unitários e de integração em uma aplicação React utilizando Jest e RTL.
+
