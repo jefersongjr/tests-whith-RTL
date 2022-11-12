@@ -1,4 +1,4 @@
-# Test With RTL :shopping:
+# Test With RTL 🧪 📊
 
 ![Prévia](https://github.com/jefersongjr/tests-whith-RTL/blob/main/public/react-testing-library.jpg)
 
@@ -7,9 +7,6 @@
 **Test With RTL** foi o projeto desenvolvido em grupo por ,[Jeferson Gomes](https://www.linkedin.com/in/jefersongjr/),
 durante o curso de formação de desenvolvimento Full Stack da [Trybe](https://www.betrybe.com/), durante o módulo de Front End.
 Aonde desenvolver testes unitários e de integração em uma aplicação React utilizando Jest e RTL.
-
-
-  Veja o resultado clicando [Aqui](https://frontend-online-store-rust.vercel.app/) :shopping:
 
 ## 🛠️ Construído com: 
 
