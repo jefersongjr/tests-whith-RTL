@@ -10,13 +10,12 @@ Aonde desenvolver testes unitários e de integração em uma aplicação React u
 
 ## 🛠️ Construído com: 
 
-*React.js
-*React Testing Library (RTL)
-*Jest.js
-*Stryker Mutator
-*JavaScript ES6+
-
+* React.js
+* React Testing Library (RTL)
+* Jest.js
+* Stryker Mutator
+* JavaScript ES6+
 
 ## :computer: Skills Desenvolvidas:
 
-  *Desenvolver testes unitários e de integração em uma aplicação React utilizando Jest e RTL.
+* Desenvolver testes unitários e de integração em uma aplicação React utilizando Jest e RTL.
