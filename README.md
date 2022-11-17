@@ -4,9 +4,9 @@
 
 ##  🚀📋 Sobre:
 
-**Test With RTL** foi o projeto desenvolvido em grupo por ,[Jeferson Gomes](https://www.linkedin.com/in/jefersongjr/),
+**Test With RTL** foi um projeto desenvolvido por mim ,[Jeferson Gomes](https://www.linkedin.com/in/jefersongjr/),
 durante o curso de formação de desenvolvimento Full Stack da [Trybe](https://www.betrybe.com/), durante o módulo de Front End.
-Aonde desenvolver testes unitários e de integração em uma aplicação React utilizando Jest e RTL.
+Aonde tive que desenvolver testes unitários e de integração em uma aplicação React utilizando Jest e RTL.
 
 ## 🛠️ Construído com: 
 
